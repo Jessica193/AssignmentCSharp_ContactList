@@ -12,16 +12,23 @@ public class ContactService(IFileService fileService) : IContactService
 
     public bool AddContactToList(Contact contact)
     {
-        try
+       if(contact != null)
         {
-            contact.Id = UniqueIdGenerator.GenerateUniqueId();
-            _contacts.Add(contact);
-            _fileService.SaveListToFile(_contacts);
-            return true;
+            try
+            {
+                contact.Id = UniqueIdGenerator.GenerateUniqueId();
+                _contacts.Add(contact);
+                _fileService.SaveListToFile(_contacts);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
         }
-        catch (Exception ex)
+        else
         {
-            Debug.WriteLine(ex.Message);
             return false;
         }
     }
