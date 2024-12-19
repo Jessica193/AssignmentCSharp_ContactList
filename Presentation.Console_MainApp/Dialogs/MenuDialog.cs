@@ -85,7 +85,11 @@ public class MenuDialog(IContactService contactService) : IMenuDialog
             Contact contact = ContactFactory.CreateContact(form);
             _contactService.AddContactToList(contact);
 
-            DialogOutput("The contact was successfully created.");
+            if (_contactService.AddContactToList(contact))
+            {
+                DialogOutput("The contact was successfully created.");
+            }
+    
             return true;
         }
         catch (Exception ex)
