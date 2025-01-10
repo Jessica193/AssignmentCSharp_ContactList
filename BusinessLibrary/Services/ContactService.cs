@@ -9,19 +9,21 @@ public class ContactService(IFileService fileService) : IContactService
 {
     private readonly IFileService _fileService = fileService;
     private List<Contact> _contacts = [];
+    public event EventHandler? ContactsUpdated;  //NYTT 
 
     public bool AddContactToList(Contact contact)
     {
-       if (contact == null)
+        if (contact == null)
         {
             return false;
         }
-        
+
         try
         {
             contact.Id = UniqueIdGenerator.GenerateUniqueId();
             _contacts.Add(contact);
             _fileService.SaveListToFile(_contacts);
+            ContactsUpdated?.Invoke(this, EventArgs.Empty);
             return true;
         }
         catch (Exception ex)
@@ -29,8 +31,8 @@ public class ContactService(IFileService fileService) : IContactService
             Debug.WriteLine(ex.Message);
             return false;
         }
-        
-        
+
+
     }
 
     public IEnumerable<Contact> GetContacts()
@@ -44,6 +46,63 @@ public class ContactService(IFileService fileService) : IContactService
         {
             Debug.WriteLine(ex.Message);
             return [];
+        }
+    }
+
+
+    //NY METODER 
+
+    public bool RemoveContactFromList(Contact contact)
+    {
+        if (contact == null)
+        {
+            return false;
+        }
+
+        try
+        {
+            var selectedContact = _contacts.FirstOrDefault(c => c.Id == contact.Id);
+            if (selectedContact != null)
+            {
+                _contacts.Remove(selectedContact);
+                _fileService.SaveListToFile(_contacts);
+                ContactsUpdated?.Invoke(this, EventArgs.Empty);
+                return true;
+            }
+            return false;
+        }
+        catch (Exception ex)
+        {
+
+            Debug.WriteLine(ex.Message);
+            return false;
+        }
+    }
+
+    public bool UpdateContactList(Contact contact)
+    {
+        if (contact == null)
+        {
+            return false;
+        }
+
+        try
+        {
+            var selectedContact = _contacts.FirstOrDefault(c => c.Id == contact.Id);
+            if (selectedContact != null)
+            {
+                selectedContact = contact;
+                _fileService.SaveListToFile(_contacts);
+                ContactsUpdated?.Invoke(this, EventArgs.Empty);
+                return true;
+            }
+            return false;
+        }
+        catch (Exception ex)
+        {
+
+            Debug.WriteLine(ex.Message);
+            return false;
         }
     }
 }

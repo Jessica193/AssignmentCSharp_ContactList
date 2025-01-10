@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:viewmodels ="clr-namespace:MobileApp.ViewModels"
+             x:DataType="{x:Type viewmodels:AddViewModel}"
+             
              x:Class="MobileApp.Pages.AddPage"
-             Title="AddPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
- 
+             Title="Add Contact">
+
+
+    <VerticalStackLayout Margin="40">
+
+        <Label Text="First name" Margin="0,0,0,10" />
+        <Entry Text="{Binding Form.FirstName}" Margin="0,0,20,0" />
+
+        <Label Text="Last name" Margin="0,0,0,10" />
+        <Entry Text="{Binding Form.LastName}" Margin="0,0,20,0"/>
+
+        <Label Text="Email" Margin="0,0,0,10"/>
+        <Entry Text="{Binding Form.Email}" Margin="0,0,20,0"/>
+
+        <Label Text="Phone number" Margin="0,0,0,10"/>
+        <Entry Text="{Binding Form.PhoneNumber}" Margin="0,0,20,0"/>
+
+        <Label Text="Address" Margin="0,0,0,10"/>
+        <Entry Text="{Binding Form.Address}" Margin="0,0,20,0"/>
+
+        <Label Text="Postal code" Margin="0,0,0,10"/>
+        <Entry Text="{Binding Form.PostalCode}" Margin="0,0,20,0"/>
+
+        <Label Text="City" Margin="0,0,0,10"/>
+        <Entry Text="{Binding Form.City}" Margin="0,0,20,0"/>
+
+        <Button Text="Save" Command="{Binding AddCommand}" Margin="40, 40, 0, 40" />
+
     </VerticalStackLayout>
+
 </ContentPage>

@@ -4,9 +4,9 @@ namespace MobileApp.Pages;
 
 public partial class AddPage : ContentPage
 {
-	public AddPage(AddViewModel viewModel)
-	{
-		InitializeComponent();
-		BindingContext = viewModel;
-	}
+    public AddPage(AddViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
 }
