@@ -83,14 +83,14 @@ public class MenuDialog(IContactService contactService) : IMenuDialog
             form.City = PromtAndValidate("Please enter your city", nameof(form.City));
 
             Contact contact = ContactFactory.CreateContact(form);
-            _contactService.AddContactToList(contact);
-
+            
             if (_contactService.AddContactToList(contact))
             {
                 DialogOutput("The contact was successfully created.");
+                return true;
             }
     
-            return true;
+            return false;
         }
         catch (Exception ex)
         {

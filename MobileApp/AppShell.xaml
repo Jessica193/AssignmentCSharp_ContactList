@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MobileApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MobileApp"
+    
+    xmlns:pages ="clr-namespace:MobileApp.Pages"
+    
+    Shell.FlyoutBehavior="Disabled"
+    Title="MobileApp">
+
+    <ShellContent
+        Title="List Overview"
+        ContentTemplate="{DataTemplate pages:ListPage}"
+        Route="ListPage" />
+
+    <ShellContent
+    Title="AddPage"
+    ContentTemplate="{DataTemplate pages:AddPage}"
+    Route="AddPage" />
+
+    <ShellContent
+    Title="EditPage"
+    ContentTemplate="{DataTemplate pages:EditPage}"
+    Route="EditPage" />
+
+</Shell>
