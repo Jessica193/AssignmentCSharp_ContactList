@@ -11,13 +11,21 @@ namespace BusinessLibrary.Services
         private readonly string _filePath;
         private readonly JsonSerializerOptions _options;
 
-
-        public FileService(string directoryPath = "Data", string fileName = "list.json")
+        /// <summary>
+        /// Konstruktor som inte hårdkodar _directoryPath till "Data" eftersom androidsimulatorn inte kunde skapa den vägen och 
+        /// då inte heller spara kontakten till filen. När SaveListToFile kördes så gick programmet in i catchen.
+        /// Modifiering av konstruktorn gjord av chatGPT. Gamla konstruktorn ligger utkommenterad längst ner i filen.
+        /// </summary>
+        /// <param name="directoryName">Katalognamn</param>
+        /// <param name="fileName">Filnamn</param>
+        public FileService(string directoryName = "Data", string fileName = "list.json")
         {
-            _directoryPath = directoryPath;
-            _filePath = Path.Combine(directoryPath, fileName);
-            _options = new JsonSerializerOptions() { WriteIndented = true};
+            var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            _directoryPath = Path.Combine(basePath, directoryName);
+            _filePath = Path.Combine(_directoryPath, fileName);
+            _options = new JsonSerializerOptions() { WriteIndented = true };
         }
+
 
         public bool SaveListToFile(List<Contact> list)
         {
@@ -60,3 +68,13 @@ namespace BusinessLibrary.Services
       
     }
 }
+
+
+//Gamla konstruktorn
+
+//public FileService(string directoryPath = "Data", string fileName = "list.json")
+//{
+//    _directoryPath = directoryPath;
+//    _filePath = Path.Combine(directoryPath, fileName);
+//    _options = new JsonSerializerOptions() { WriteIndented = true};
+//}

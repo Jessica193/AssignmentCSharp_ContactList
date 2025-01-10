@@ -9,7 +9,7 @@ public class ContactService(IFileService fileService) : IContactService
 {
     private readonly IFileService _fileService = fileService;
     private List<Contact> _contacts = [];
-    public event EventHandler? ContactsUpdated;  //NYTT 
+    public event EventHandler? ContactsUpdated; 
 
     public bool AddContactToList(Contact contact)
     {
@@ -31,8 +31,6 @@ public class ContactService(IFileService fileService) : IContactService
             Debug.WriteLine(ex.Message);
             return false;
         }
-
-
     }
 
     public IEnumerable<Contact> GetContacts()
@@ -48,9 +46,6 @@ public class ContactService(IFileService fileService) : IContactService
             return [];
         }
     }
-
-
-    //NY METODER 
 
     public bool RemoveContactFromList(Contact contact)
     {

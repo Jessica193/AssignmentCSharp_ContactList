@@ -1,5 +1,4 @@
 ﻿using BusinessLibrary.Interfaces;
-using BusinessLibrary.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
@@ -28,14 +27,6 @@ public partial class ListViewModel : ObservableObject
     public void UpdateContactList()
     {
         ContactList = new ObservableCollection<BusinessLibrary.Models.Contact>(_contactService.GetContacts());
-
-        //ContactList = new ObservableCollection<Contact>();
-
-        //foreach (Contact contact in _contactService.GetContacts())
-        //{
-        //    ContactList.Add(contact);
-        //}
-
     }
 
 
