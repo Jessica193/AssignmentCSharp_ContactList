@@ -16,15 +16,23 @@
             <CollectionView Grid.Row="1"  ItemsSource="{Binding ContactList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Contact">
-                        <Border BackgroundColor="Transparent" Stroke="Transparent" Padding="10" Margin="0">
+                        <Border BackgroundColor="LightGray" Stroke="Transparent" Padding="10" Margin="0">
                             <Grid ColumnDefinitions="*, auto">
+                                <VerticalStackLayout Grid.Column="0" Padding="0,0,0,10" >
+                                    <Label Text="{Binding FullName}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding Address}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding PostalAndCity}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                    <Label Text="" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding Email}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding PhoneNumber}" VerticalOptions="Center" VerticalTextAlignment="Center"  />
+                                </VerticalStackLayout>
 
-                                <Label Grid.Column="0" Text="{Binding FullName}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                
                                 
                             
-                                <HorizontalStackLayout Grid.Column="1">
-                                    <Button Text="Edit" CommandParameter="{Binding .}" Command="{Binding Path=NavigateToEditCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ListViewModel}}}" Margin="5, 0, 0, 0" TextColor="White" BackgroundColor="DarkSlateGrey" />
-                                    <Button Text="Delete" CommandParameter="{Binding .}" Command="{Binding Path=RemoveCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ListViewModel}}}" Margin="5, 0, 0, 0" TextColor="White" BackgroundColor="DarkSlateGrey" />
+                                <HorizontalStackLayout Grid.Column="1" Padding="0, 30, 0, 40">
+                                    <Button Text="Edit" CommandParameter="{Binding .}" Command="{Binding Path=NavigateToEditCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ListViewModel}}}" Margin="5"  TextColor="White" BackgroundColor="DarkSlateGrey" />
+                                    <Button Text="Delete" CommandParameter="{Binding .}" Command="{Binding Path=RemoveCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ListViewModel}}}" Margin="5" TextColor="White" BackgroundColor="DarkSlateGrey" />
                                 </HorizontalStackLayout>
 
                             </Grid>
