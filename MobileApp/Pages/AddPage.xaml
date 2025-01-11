@@ -8,32 +8,32 @@
              x:Class="MobileApp.Pages.AddPage"
              Title="Add Contact">
 
+    <ScrollView>
+        <VerticalStackLayout Margin="40">
 
-    <VerticalStackLayout Margin="40">
+            <Label Text="First name" Margin="0,0,0,10" />
+            <Entry Text="{Binding Form.FirstName}" Margin="0,0,0,20" />
 
-        <Label Text="First name" Margin="0,0,0,10" />
-        <Entry Text="{Binding Form.FirstName}" Margin="0,0,20,0" />
+            <Label Text="Last name" Margin="0,0,0,10" />
+            <Entry Text="{Binding Form.LastName}" Margin="0,0,0,20"/>
 
-        <Label Text="Last name" Margin="0,0,0,10" />
-        <Entry Text="{Binding Form.LastName}" Margin="0,0,20,0"/>
+            <Label Text="Email" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Form.Email}" Margin="0,0,0,20"/>
 
-        <Label Text="Email" Margin="0,0,0,10"/>
-        <Entry Text="{Binding Form.Email}" Margin="0,0,20,0"/>
+            <Label Text="Phone number" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Form.PhoneNumber}" Margin="0,0,0,20"/>
 
-        <Label Text="Phone number" Margin="0,0,0,10"/>
-        <Entry Text="{Binding Form.PhoneNumber}" Margin="0,0,20,0"/>
+            <Label Text="Address" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Form.Address}" Margin="0,0,0,20"/>
 
-        <Label Text="Address" Margin="0,0,0,10"/>
-        <Entry Text="{Binding Form.Address}" Margin="0,0,20,0"/>
+            <Label Text="Postal code" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Form.PostalCode}" Margin="0,0,0,20"/>
 
-        <Label Text="Postal code" Margin="0,0,0,10"/>
-        <Entry Text="{Binding Form.PostalCode}" Margin="0,0,20,0"/>
+            <Label Text="City" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Form.City}" Margin="0,0,0,20"/>
 
-        <Label Text="City" Margin="0,0,0,10"/>
-        <Entry Text="{Binding Form.City}" Margin="0,0,20,0"/>
+            <Button Text="Save" Command="{Binding AddCommand}" Margin="0,20,0,0" BackgroundColor="DarkSlateGrey"  TextColor="white" />
 
-        <Button Text="Save" Command="{Binding AddCommand}" Margin="40, 40, 0, 40" />
-
-    </VerticalStackLayout>
-
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

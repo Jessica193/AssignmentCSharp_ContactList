@@ -8,33 +8,33 @@
              x:Class="MobileApp.Pages.EditPage"
              Title="Edit contact">
 
+    <ScrollView>
+        <VerticalStackLayout Margin="40">
 
-    <VerticalStackLayout Grid.Row="0">
+            <Label Text="First name" Margin="0,0,0,10" />
+            <Entry Text="{Binding Contact.FirstName}" Margin="0,0,0,20" />
 
-        <Label Text="First name" Margin="20,0,20,10" />
-        <Entry Text="{Binding Contact.FirstName}" Margin="20,0,20,20" />
+            <Label Text="Last name" Margin="0,0,0,10" />
+            <Entry Text="{Binding Contact.LastName}" Margin="0,0,0,20"/>
 
-        <Label Text="Last name" Margin="20,0,20,10" />
-        <Entry Text="{Binding Contact.LastName}" Margin="20,0,20,20"/>
+            <Label Text="Email" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Contact.Email}" Margin="0,0,0,20"/>
 
-        <Label Text="Email" Margin="20,0,20,10"/>
-        <Entry Text="{Binding Contact.Email}" Margin="20,0,20,20"/>
+            <Label Text="Phone number" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Contact.PhoneNumber}" Margin="0,0,0,20"/>
 
-        <Label Text="Phone number" Margin="20,0,20,10"/>
-        <Entry Text="{Binding Contact.PhoneNumber}" Margin="20,0,20,20"/>
+            <Label Text="Address" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Contact.Address}" Margin="0,0,0,20"/>
 
-        <Label Text="Address" Margin="20,0,20,10"/>
-        <Entry Text="{Binding Contact.Address}" Margin="20,0,20,20"/>
+            <Label Text="Postal code" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Contact.PostalCode}" Margin="0,0,0,20"/>
 
-        <Label Text="Postal code" Margin="20,0,20,10"/>
-        <Entry Text="{Binding Contact.PostalCode}" Margin="20,0,20,20"/>
+            <Label Text="City" Margin="0,0,0,10"/>
+            <Entry Text="{Binding Contact.City}" Margin="0,0,0,20"/>
 
-        <Label Text="City" Margin="20,0,20,10"/>
-        <Entry Text="{Binding Contact.City}" Margin="20,0,20,20"/>
+            <Button Text="Save" Command="{Binding UpdateCommand}" Margin="0,20,0,0" BackgroundColor="DarkSlateGrey"  TextColor="white" />
 
-        <Button Text="Save" Command="{Binding UpdateCommand}" Margin="20,0,20,20" />
-
-    </VerticalStackLayout>
-
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
